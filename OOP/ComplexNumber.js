@@ -19,6 +19,14 @@ class ComplexNumber{
     polar(){
         return Math.sqrt(Math.pow(this.real, 2) + Math.pow(this.imaginary, 2))
     }
+
+    addComplexNumbers() {
+        return 0
+    }
+
+    substractComplexNumbers() {
+        return 0;
+    }
 }
 
 class Test extends ComplexNumber{
