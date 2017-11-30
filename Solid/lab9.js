@@ -14,13 +14,32 @@ class Engine{
     }
 }
 
-class Vehicle {
+class Person{
+        constructor(){
+            this.name = ''
+            this.address = '' 
+        }
+    
+        canDrive(){
+            console.log("driving...")
+        }
+    
+        readPoetry() {
+            console.log("I don't read poetry", this.name)
+        }
+    
+    }
+
+class Vehicle extends Person {
 
     constructor(obj){
+        super()
         this.chassisnumber = obj.chassis
-        this.owner = obj.owner
+        this.name = obj.owner
+        this.address = ''
         this.distance = obj.distance
         this.runtime = obj.runtime
+        this.numberOfWheels = 4
 
         this.details = []
     }
@@ -39,22 +58,9 @@ class Vehicle {
         var find = chatLogs.filter(x => x.chassis === this.chassisnumber) 
         //get total runnung time
         
-        console.log("Total Running Time", find.reduce((sum, find) => sum + find.runtime, 0))
+        console.log("Total Running Time is:", find.reduce((sum, find) => sum + find.runtime, 0))
     }
-}
-
-class Person{
-
-    constructor(name, address){
-        this.name = name
-        this.address = address
-        // this.readpoetry = false
-    }
-
-    drive(){
-        console.log("driving...")
-    }
-
+    
 }
 
 var object = {
@@ -63,7 +69,7 @@ var object = {
     "distance": "22.4078718509",
     "runtime": 90
 }
-// console.log(object)
 
 let vehicle = new Vehicle(object)
 vehicle.getTotalRunningTime()
+vehicle.readPoetry()
