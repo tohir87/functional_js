@@ -1,4 +1,4 @@
-
+console.log("============== OOP ==================")
 class Engine{
     constructor(number, size, totalRunningTime){
         this.number = "84747464"
@@ -83,8 +83,8 @@ class Vehicle extends Engine {
             "Owner" : this.findOwner(),
             "Details" : {
                 "chasis" : this.chassisnumber,
-                "totalRunningTime" : this.getTotalRunningTime(),
-                "totalDistanceCovered" : this.getTotalDistance(),
+                "Total Running Time" : this.getTotalRunningTime(),
+                "Total Distance Covered" : this.getTotalDistance(),
             }
            
         }
@@ -99,7 +99,7 @@ var object = {
 let vehicle = new Vehicle(object)
 console.log(vehicle.getVehicleInfo())
 
-
+console.log("============== Compositional Style ==================")
 // read external file
 let fs = require('fs')
 let carLogs = JSON.parse(fs.readFileSync('carsOOP.json', 'utf8'))
@@ -110,12 +110,12 @@ const enginec = {
     totalRunningTime: function(){
         //get total runnung time
         var find = carLogs.filter(x => x.chassis === this.chassis) 
-        return find.reduce((sum, find) => sum + find.runtime, 0)
+        return find.reduce((sum, find) => sum + find.runtime, 0) + " Mins"
      },
      totalDistanceCovered: function(){
         //get total runnung time
         var find = carLogs.filter(x => x.chassis === this.chassis) 
-        return Math.round(find.reduce((sum, find) => sum + parseFloat(find.distance), 0))
+        return Math.round(find.reduce((sum, find) => sum + parseFloat(find.distance), 0)) + " km/h"
      }
 }
 
