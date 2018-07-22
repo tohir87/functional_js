@@ -1,5 +1,15 @@
-function greaterThan(n) {
-  return function(m) { return m > n }
+
+function solution(A) {
+  // write your code in JavaScript (Node.js 8.9.4)
+  var min = Math.min(A)
+  console.log(min)
+
+  let is = A.map(function(x, idx, arr){
+    var min = 1;
+    return min == x ? ++min : min;
+
+  } )
 }
-var greaterThan10 = greaterThan(10)
-console.log(greaterThan10(10))
+
+var bb = solution([1,3,6,4,1,2])
+console.log(bb)
